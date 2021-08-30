@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>秒杀倒计时</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        body {
+            background-color:rgba(191, 3, 248, 0.527);
+        }
+        .box {
+            border: 10px rgb(119, 128, 0);
+            width: 30%;
+            height: 800px;
+            text-align: center;
+            margin: 0 auto;
+            background-color: #e83632;
+            background-color: #00000080  rgba(0,0,0,0.1);
+            padding: 20px 50px;                           
+        }
+        h1 {
+            color: white;
+            margin-top: 100px;
+            font-size: 100px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        h4 {
+            margin-top: 10px;
+            font-size: 50px;
+            color: rgb(243, 177, 177);
+        }
+        h3 {
+            margin-top: 20px;
+            font-size: 30px;
+            color: white;
+            font-weight: 100;
+        }
+        img {
+            width: 100px;
+            margin-top: 30px;
+        }
+        .time {
+            width: 468px;
+            margin: 20px auto;
+        }
+        ul {
+            width: 475px;
+            margin: 60px auto;
+            
+        }
+        li{
+            list-style: none;
+            float: left;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.514);
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+            width: 100px;
+            height: 100px;
+            font-size: 50px;
+            line-height: 100px;
+            text-decoration: line-through 3px  red;
+        }
+        .lff {
+            margin-left: 40px;
+        }
+    </style>
+</head>
+<body>
+        <div class="box">
+            <h1>倒~计~时</h1>
+            <h4>COUNT-DOWN</h4>
+            <div>
+                <img src="light.png" alt="">
+            </div>
+            <h3>距离活动结束还有</h3>
+            <div class="time">
+                <ul>
+                    <li class="lff" id="hour">59</li>
+                    <li id="minus">59</li>
+                    <li id="second">59</li>
+                </ul>
+            </div>
+        </div>
+        
+        
+<script>
+        var hour = document.getElementById("hour");
+        var minus = document.getElementById("minus");
+        var second = document.getElementById("second");
+
+        function time(){
+         var end = new Date("Apr 2 2021 00:00:00");
+         var now = new Date();
+         var rest;
+         
+         rest = parseInt((end.getTime()-now.getTime())/1000);
+         
+        var h = parseInt(rest/3600);
+        var m = parseInt(rest/60%60);
+        var s = parseInt(rest%60);
+
+        if(rest>0){
+            hour.innerHTML = h;
+            minus.innerHTML = m;
+            second.innerHTML = s;
+        }
+        };
+
+        setInterval(time,1000);
+        
+</script>
+
+</body>
+</html>
